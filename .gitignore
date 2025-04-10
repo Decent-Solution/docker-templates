@@ -1,0 +1,26 @@
+# Ignore Docker-related files
+*.log
+docker-compose.override.yml
+.env
+.env.*
+
+# Ignore macOS-specific files
+.DS_Store
+
+# Ignore editor and IDE files
+.vscode/
+.idea/
+*.swp
+
+# Ignore node_modules if JavaScript/Node.js tools are used
+node_modules/
+
+# Ignore Python virtual environment if applicable
+venv/
+__pycache__/
+
+# Ignore archives and temporary files
+*.tar
+*.gz
+*.zip
+*.tmp
