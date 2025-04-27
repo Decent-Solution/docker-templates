@@ -1,21 +1,29 @@
 services:
 
   db:
+    # Use the official Postgres image
     image: postgres:15-alpine
+    # Set environment variables for the Postgres container
     environment:
       POSTGRES_DB: wiki
       POSTGRES_PASSWORD: wikijsrocks
       POSTGRES_USER: wikijs
+    # Disable logging for the Postgres container
     logging:
       driver: none
+    # Restart the container unless it is explicitly stopped
     restart: unless-stopped
+    # Mount volumes to persist data
     volumes:
       - db-data:/var/lib/postgresql/data
 
   wiki:
+    # Use the official Wiki.js image
     image: ghcr.io/requarks/wiki:2
+    # Ensure the 'db' service is started before this service
     depends_on:
       - db
+    # Set environment variables for the Wiki.js container
     environment:
       DB_TYPE: postgres
       DB_HOST: db
@@ -23,9 +31,12 @@ services:
       DB_USER: wikijs
       DB_PASS: wikijsrocks
       DB_NAME: wiki
+    # Restart the container unless it is explicitly stopped
     restart: unless-stopped
+    # Map port 80 on the host to port 3000 on the container
     ports:
       - "80:3000"
 
 volumes:
+  # Volume for Postgres data
   db-data:
