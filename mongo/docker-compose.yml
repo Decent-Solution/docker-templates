@@ -4,17 +4,24 @@ version: '3.1'
 services:
 
   mongo:
+    # Use the official MongoDB image
     image: mongo
+    # Always restart the container unless it is explicitly stopped
     restart: always
+    # Set environment variables for the MongoDB container
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
 
   mongo-express:
+    # Use the official Mongo Express image
     image: mongo-express
+    # Always restart the container unless it is explicitly stopped
     restart: always
+    # Map ports on the host to ports on the container
     ports:
       - 8081:8081
+    # Set environment variables for the Mongo Express container
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example

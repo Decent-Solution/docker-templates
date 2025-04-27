@@ -1,20 +1,26 @@
 ---
 services:
   code-server:
+    # Use the latest version of the code-server image
     image: lscr.io/linuxserver/code-server:latest
+    # Name the container
     container_name: code-server
+    # Set environment variables for the container
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Australia/Sydney
-      - PASSWORD=password #optional
-      - HASHED_PASSWORD= #optional
-      - SUDO_PASSWORD=password #optional
-      - SUDO_PASSWORD_HASH= #optional
-      - PROXY_DOMAIN=code.hq.decent-cloud.network #optional
-      - DEFAULT_WORKSPACE=/config/workspace #optional
+      - PASSWORD=password # optional
+      - HASHED_PASSWORD= # optional
+      - SUDO_PASSWORD=password # optional
+      - SUDO_PASSWORD_HASH= # optional
+      - PROXY_DOMAIN=code.hq.decent-cloud.network # optional
+      - DEFAULT_WORKSPACE=/config/workspace # optional
+    # Mount volumes to persist data and configuration
     volumes:
       - /path/to/code-server/config:/config
+    # Map ports on the host to ports on the container
     ports:
       - 8443:8443
+    # Restart the container unless it is explicitly stopped
     restart: unless-stopped

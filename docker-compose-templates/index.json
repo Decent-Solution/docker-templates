@@ -1,0 +1,58 @@
+{
+  "templates": [
+    {
+      "name": "Python Jupyter ML Stack",
+      "description": "A Docker Compose template for a Python, Jupyter, and ML stack",
+      "tags": ["python", "jupyter", "ml", "data-science"],
+      "path": "python-jupyter-ml-stack"
+    },
+    {
+      "name": "Caddy",
+      "description": "A Docker Compose template for the Caddy web server",
+      "tags": ["web-server", "caddy"],
+      "path": "caddy"
+    },
+    {
+      "name": "Code Server",
+      "description": "A Docker Compose template for the Code Server IDE",
+      "tags": ["ide", "code-server"],
+      "path": "code-server"
+    },
+    {
+      "name": "LiteLLM",
+      "description": "A Docker Compose template for the LiteLLM service",
+      "tags": ["llm", "lite"],
+      "path": "litellm"
+    },
+    {
+      "name": "MindsDB",
+      "description": "A Docker Compose template for the MindsDB service",
+      "tags": ["database", "mindsdb"],
+      "path": "mindsdb"
+    },
+    {
+      "name": "MongoDB",
+      "description": "A Docker Compose template for MongoDB and Mongo Express",
+      "tags": ["database", "mongodb", "mongo-express"],
+      "path": "mongo"
+    },
+    {
+      "name": "Nginx Web Server",
+      "description": "A Docker Compose template for the Nginx web server",
+      "tags": ["web-server", "nginx"],
+      "path": "nginx-web-server"
+    },
+    {
+      "name": "Portkey AI",
+      "description": "A Docker Compose template for the Portkey AI gateway",
+      "tags": ["ai", "gateway", "portkey"],
+      "path": "portkey-ai"
+    },
+    {
+      "name": "Wiki.js",
+      "description": "A Docker Compose template for the Wiki.js documentation platform",
+      "tags": ["documentation", "wiki", "wiki-js"],
+      "path": "wiki-js"
+    }
+  ]
+}

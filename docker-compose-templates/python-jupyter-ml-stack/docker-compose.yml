@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  jupyter:
+    # Use the official Jupyter Notebook image
+    image: jupyter/scipy-notebook:latest
+    # Restart the container unless it is explicitly stopped
+    restart: unless-stopped
+    # Map ports on the host to ports on the container
+    ports:
+      - "8888:8888"
+    # Mount volumes to persist data and configuration
+    volumes:
+      - ./notebooks:/home/jovyan/work
+    # Set environment variables for the Jupyter container
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+
+  python:
+    # Use the official Python image
+    image: python:3.9
+    # Restart the container unless it is explicitly stopped
+    restart: unless-stopped
+    # Mount volumes to persist data and configuration
+    volumes:
+      - ./scripts:/usr/src/app
+    # Set the working directory for the Python container
+    working_dir: /usr/src/app
+    # Set the command to run the Python application
+    command: python app.py
+
+  mlflow:
+    # Use the official MLflow image
+    image: mlflow/mlflow:latest
+    # Restart the container unless it is explicitly stopped
+    restart: unless-stopped
+    # Map ports on the host to ports on the container
+    ports:
+      - "5000:5000"
+    # Set environment variables for the MLflow container
+    environment:
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+    # Set the command to run the MLflow server
+    command: mlflow server --host 0.0.0.0 --port 5000
+
+volumes:
+  # Volume for Jupyter notebooks
+  notebooks:
+  # Volume for Python scripts
+  scripts:

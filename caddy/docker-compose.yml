@@ -1,11 +1,15 @@
 services:
   caddy:
+    # Use the latest version of the Caddy image
     image: caddy:latest
+    # Restart the container unless it is explicitly stopped
     restart: unless-stopped
+    # Map ports on the host to ports on the container
     ports:
       - "80:80"
       - "443:443"
       - "443:443/udp"
+    # Mount volumes to persist data and configuration
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - ./site:/srv
@@ -13,5 +17,7 @@ services:
       - caddy_config:/config
 
 volumes:
+  # Volume for Caddy data
   caddy_data:
+  # Volume for Caddy configuration
   caddy_config:

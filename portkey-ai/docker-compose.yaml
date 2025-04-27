@@ -1,7 +1,10 @@
 version: '3'
 services:
   web:
+    # Map port 8787 on the host to port 8787 on the container
     ports:
       - "8787:8787"
+    # Use the latest version of the portkeyai/gateway image
     image: "portkeyai/gateway:latest"
+    # Always restart the container unless it is explicitly stopped
     restart: always
